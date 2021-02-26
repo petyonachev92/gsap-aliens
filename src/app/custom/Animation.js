@@ -14,8 +14,8 @@ export default class Animation extends EventEmitter {
                
         this.saucer.on(Saucer.events.FLY_IN, () => this.saucer.toggleBeam())
         this.saucer.on(Saucer.events.BEAM_SHOW, () => this.cow.moveTo())
-        this.cow.on(Cow.events.ABDUCT_COMPLETED, () => this.saucer.hideBeam())
         this.cow.on(Cow.events.ABDUCT_COMPLETED, () => this.cow.hide())
+        this.cow.on(Cow.events.ABDUCT_COMPLETED, () => this.saucer.hideBeam())
         this.saucer.on(Saucer.events.BEAM_HIDE, () => this.saucer.flyAway())
                 
         await this.saucer.moveTo()
