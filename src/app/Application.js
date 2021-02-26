@@ -17,6 +17,8 @@ export default class Application extends EventEmitter {
     this.config = config;
     this.data = { };
 
+    this.on(Application.events.APP_READY, () => console.log(this.data))
+
     this.init();
   }
 
@@ -34,10 +36,10 @@ export default class Application extends EventEmitter {
     // Initiate classes and wait for async operations here.
 
     const animation = new Animation()
+    
+    this.data.animation = animation
 
     await animation.start();
-
-    this.data.animation = animation
 
     this.emit(Application.events.APP_READY);
   }
