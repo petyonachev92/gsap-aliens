@@ -29,13 +29,13 @@ export default class Saucer extends EventEmitter{
 
     async toggleBeam() {
 
-        await gsap.to(this._beamTopElement, {id: "showTopBeam", opacity: 0.6})
+        gsap.to(this._beamTopElement, {id: "showTopBeam", opacity: 0.6})
         await gsap.to(this._beamBottomElement, {id: "showBottomBeam", opacity: 0.6})
         this.emit(Saucer.events.BEAM_SHOW)
     }
     
     async hideBeam() {
-        await gsap.to(this._beamTopElement, {id: "hideTopBeam", opacity: 0})
+        gsap.to(this._beamTopElement, {id: "hideTopBeam", opacity: 0})
         await gsap.to(this._beamBottomElement, {id: "hideBottomBeam", opacity: 0})
         this.emit(Saucer.events.BEAM_HIDE)
 
